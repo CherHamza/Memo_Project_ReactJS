@@ -1,8 +1,8 @@
-export default class JsonServer {
+export default class JsonServerUser {
     static url = "http://localhost:3001/users";
 
     static async loadUser() {
-        return fetch(JsonServer.url)
+        return fetch(JsonServerUser.url)
         .then(response => {
             console.log(`response.status`, response.status);
             if (response.status !== 200) throw new Error("Erreur dans le loadUser")
@@ -18,5 +18,6 @@ export default class JsonServer {
         });
     
     }
+
 
 }

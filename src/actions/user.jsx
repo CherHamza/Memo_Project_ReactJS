@@ -1,10 +1,10 @@
 import { ActionFunctionArgs } from "react-router-dom";
-import JsonServer from "../services/JsonServer";
+import JsonServerUser from "../services/JsonServerUser";
 
 export const loadUser = async ({ request }) => {
   console.log(` Dans actionUser`);
   const formData = await request.formData();
 //   const article_title = formData.get("article_title") ;
-  await JsonServer.loadUser();
+  await JsonServerUser.loadUser();
   return null;
 };
