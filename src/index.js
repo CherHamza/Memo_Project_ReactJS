@@ -1,13 +1,35 @@
+import App from './components/App';
+// import Articles from './components/Articles';
+import 'bootstrap/dist/css/bootstrap.css';
+// import '~bootstrap/scss/bootstrap';
+// import './style/index.scss';
+import Authentification from './components/Authentification';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { loadUser } from './actions/user';
+// import loaderArticles from './loaders/articles';
+// import { actionAdd } from './actions/articles';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') 
+);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<App />} >
+        <Route path="/Authentification" element={<Authentification />}  action={loadUser}/>
+        {/* <Route path="articles" element={<Articles />} loader={loaderArticles} /> */}
+      </Route>  
+     
+    </>
+  )
+)
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
