@@ -10,8 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { loadUser } from './actions/user';
 import Memo from './components/Memo';
-// import loaderArticles from './loaders/articles';
-// import { actionAdd } from './actions/articles';
+
 
 
 const root = ReactDOM.createRoot(
