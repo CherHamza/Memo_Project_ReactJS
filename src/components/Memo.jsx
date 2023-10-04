@@ -6,8 +6,8 @@ import JsonServerCards from "../services/JsonServerCards";
 function Memo() {
   // Définition des états du composant
   const [terms, setTerms] = useState([]); // Liste des termes
-  const [columns, setColumns] = useState([]); // Liste des colonnes
-  const [cards, setCards] = useState([]); // Liste des cartes
+  const [columns, setColumns] = useState([]); //  colonnes
+  const [cards, setCards] = useState([]); // cartes
   const [newCard, setNewCard] = useState({
     question: "",
     answer: "",
@@ -19,7 +19,7 @@ function Memo() {
 
   // UseEffect pour charger les donnés du composant
   useEffect(() => {
-    // Fonction async pour charger les termes depuis JsonServer
+    // Fonction async pour charger les termes depuis JsonServ
     const fetchTerms = async () => {
       try {
         const loadedTerms = await JsonServerTerms.loadTerms();
@@ -29,7 +29,7 @@ function Memo() {
       }
     };
 
-    // Fonction async pour charger les colonnes depuis le Jsonserveur
+    // Fonction async pour charger les colonnes depuis le Jsonserv
     const fetchColumns = async () => {
       try {
         const loadedColumns = await JsonServerColumns.loadColumns();
@@ -39,7 +39,7 @@ function Memo() {
       }
     };
 
-    // Fonction asynchrone pour charger les cartes depuis le serveur
+    // Fonction async pour charger les cartes depuis le Jsonserv
     const fetchCards = async () => {
       try {
         const loadedCards = await JsonServerCards.loadCards();
@@ -49,13 +49,13 @@ function Memo() {
       }
     };
 
-    // Appeler les fonctions pour charger les données
+    // Appele les fonctions pour charger les données
     fetchTerms();
     fetchColumns();
     fetchCards();
   }, []);
 
-  // Gérer le clic sur un terme
+  // Gestion du du clic sur un terme
   const handleTermClick = (term) => {
     setSelectedTerm(term.id); // Mettre à jour le terme sélectionné
   };
@@ -66,8 +66,8 @@ function Memo() {
       const addedTerm = await JsonServerTerms.addTerm({
         name: newTerm
       });
-      setTerms([...terms, addedTerm]); // Ajouter le terme à la liste
-      setNewTerm(""); // Réinitialiser le champ du nom du terme
+      setTerms([...terms, addedTerm]); // add le terme à la liste
+      setNewTerm(""); // rénitisalisation du champ du nom du terme
     } catch (error) {
       console.error("Erreur lors de l'ajout du terme :", error);
     }
@@ -77,13 +77,13 @@ function Memo() {
   const handleDeleteTerm = async (termId) => {
     try {
       await JsonServerTerms.deleteTerm(termId);
-      setTerms(terms.filter((term) => term.id !== termId)); // Filtrer les termes pour supprimer celui avec l'ID donné
+      setTerms(terms.filter((term) => term.id !== termId)); // Filtre sur les termes afin de supprimer celui avec l'ID selectioné
     } catch (error) {
       console.error("Erreur lors de la suppression du terme :", error);
     }
   };
 
-  // Filtrer les cartes en fonction de la colonne et du terme sélectionnés
+  // Filtre des cards en fonction de la colonne & du terme szlectionné
   const getCardsByColumnIdAndTerm = (columnId, termId) => {
     return cards.filter(
       (card) => card.column === columnId && (termId === "" || card.tid === termId)
@@ -97,13 +97,13 @@ function Memo() {
         ...newCard,
         term: selectedTerm // Utiliser le terme sélectionné
       });
-      setCards([...cards, addedCard]); // Ajouter la carte à la liste
+      setCards([...cards, addedCard]); // ajout card a la liste
       setNewCard({
         question: "",
         answer: "",
         column: "",
         term: ""
-      }); // Réinitialiser le formulaire d'ajout de carte
+      }); // Réinitialisation du form d'ajout de la card
     } catch (error) {
       console.error("Erreur lors de l'ajout de la carte :", error);
     }
@@ -119,12 +119,12 @@ function Memo() {
     }
   };
 
-  // Rendu du composant
+  
   return (
     <div>
       <h1>MEMO</h1>
 
-      {/* Champ pour le nom du nouveau terme */}
+      {/* traitement d'ajout du nouveau terme */}
       <div className="mb-3">
         <label htmlFor="newTerm" className="form-label">
           Nouveau terme
@@ -138,7 +138,7 @@ function Memo() {
         />
       </div>
 
-      {/* Bouton pour ajouter un terme */}
+    
       <button
         className="btn btn-success mb-3"
         onClick={handleAddTerm}
@@ -162,6 +162,9 @@ function Memo() {
             </span>
           ))}
       </div>
+
+
+
 
       {/* Formulaire pour ajouter une carte */}
       <div>
@@ -236,6 +239,10 @@ function Memo() {
           </button>
         </form>
       </div>
+
+
+
+
 
       {/* Affichage des colonnes et des cartes */}
       <div>
