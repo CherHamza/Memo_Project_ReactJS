@@ -78,25 +78,11 @@
       "tid": 586
     },
     {
-      "id": 34,
-      "question": "Sous quelle marque a été développé React ?",
-      "answer": "FaceBook",
-      "column": 1,
-      "tid": 586
-    },
-    {
       "question": "question react",
       "answer": "react",
       "column": 1,
       "term": 586,
       "id": 35
-    },
-    {
-      "question": "ok",
-      "answer": "okkk",
-      "column": 3,
-      "term": 586,
-      "id": 36
     }
   ]
 }

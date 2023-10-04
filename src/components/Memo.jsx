@@ -13,7 +13,7 @@ function Memo() {
     column: "",
     term: ""
   });
-  const [selectedTerm, setSelectedTerm] = useState(""); // Ajout de l'état pour le terme sélectionné
+  const [selectedTerm, setSelectedTerm] = useState(""); // afin de mettre a jour  l'etat pour le terme selectionné
 
   useEffect(() => {
     const fetchTerms = async () => {
@@ -49,7 +49,7 @@ function Memo() {
   }, []);
 
   const handleTermClick = (term) => {
-    setSelectedTerm(term.id); // Mettez à jour le terme sélectionné
+    setSelectedTerm(term.id); // afin de mettre a jour le terme selectionné
   };
 
   const getCardsByColumnIdAndTerm = (columnId, termId) => {
@@ -62,7 +62,7 @@ function Memo() {
     try {
       const addedCard = await JsonServerCards.addCard({
         ...newCard,
-        term: selectedTerm // Utilisez le terme sélectionné
+        term: selectedTerm // Utilise le terme sélectionné
       });
       setCards([...cards, addedCard]);
       setNewCard({
@@ -102,7 +102,6 @@ function Memo() {
             </span>
           ))}
       </div>
-
       <div>
   <h3>Ajouter une carte</h3>
   <form>
@@ -158,8 +157,8 @@ function Memo() {
       <select
         className="form-select"
         id="term"
-        value={newCard.term} // Assurez-vous que newCard.term contient l'ID du terme sélectionné
-        onChange={(e) => setNewCard({ ...newCard, term: parseInt(e.target.value) })}
+        value={newCard.tid} // 
+        onChange={(e) => setNewCard({ ...newCard, tid: parseInt(e.target.value) })}
         required
       >
         <option value="">Sélectionnez un terme</option>
@@ -175,6 +174,7 @@ function Memo() {
     </button>
   </form>
 </div>
+
 
 
       <div>
