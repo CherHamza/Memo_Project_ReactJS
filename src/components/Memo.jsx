@@ -158,7 +158,8 @@ function Memo() {
               onClick={() => handleTermClick(term)}
             >
               {term.name}
-              <button onClick={() => handleDeleteTerm(term.id)}>Supprimer</button>
+            <button onClick={() => handleDeleteTerm(term.id)} className="btn btn-sm btn-danger">x</button>
+
             </span>
           ))}
       </div>
@@ -168,77 +169,82 @@ function Memo() {
 
       {/* Formulaire pour ajouter une carte */}
       <div>
-        <h3>Ajouter une carte</h3>
-        <form>
-          <div className="mb-3">
-            <label htmlFor="question" className="form-label">
-              Question
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="question"
-              value={newCard.question}
-              onChange={(e) => setNewCard({ ...newCard, question: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="answer" className="form-label">
-              Réponse
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="answer"
-              value={newCard.answer}
-              onChange={(e) => setNewCard({ ...newCard, answer: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="column" className="form-label">
-              Colonne
-            </label>
-            <select
-              className="form-select"
-              id="column"
-              value={newCard.column}
-              onChange={(e) => setNewCard({ ...newCard, column: parseInt(e.target.value) })}
-              required
-            >
-              <option value="">Sélectionnez une colonne</option>
-              {columns.map((col) => (
-                <option key={col.id} value={col.id}>
-                  {col.label}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="term" className="form-label">
-              Terme
-            </label>
-            <select
-              className="form-select"
-              id="term"
-              value={newCard.tid}
-              onChange={(e) => setNewCard({ ...newCard, tid: parseInt(e.target.value) })}
-              required
-            >
-              <option value="">Sélectionnez un terme</option>
-              {terms.map((term) => (
-                <option key={term.id} value={term.id}>
-                  {term.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button type="button" className="btn btn-primary" onClick={handleAddCard}>
-            Ajouter
-          </button>
-        </form>
+  <h3>Ajouter une carte</h3>
+  <form>
+    <div className="row gx-2">
+      <div className="col-md-6 mb-3">
+        <label htmlFor="question" className="form-label">
+          Question
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="question"
+          value={newCard.question}
+          onChange={(e) => setNewCard({ ...newCard, question: e.target.value })}
+          required
+        />
       </div>
+      <div className="col-md-6 mb-3">
+        <label htmlFor="answer" className="form-label">
+          Réponse
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="answer"
+          value={newCard.answer}
+          onChange={(e) => setNewCard({ ...newCard, answer: e.target.value })}
+          required
+        />
+      </div>
+    </div>
+    <div className="row gx-2">
+      <div className="col-md-6 mb-3">
+        <label htmlFor="column" className="form-label">
+          Colonne
+        </label>
+        <select
+          className="form-select"
+          id="column"
+          value={newCard.column}
+          onChange={(e) => setNewCard({ ...newCard, column: parseInt(e.target.value) })}
+          required
+        >
+          <option value="">Sélectionnez une colonne</option>
+          {columns.map((col) => (
+            <option key={col.id} value={col.id}>
+              {col.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="col-md-6 mb-3">
+        <label htmlFor="term" className="form-label">
+          Terme
+        </label>
+        <select
+          className="form-select"
+          id="term"
+          value={newCard.tid}
+          onChange={(e) => setNewCard({ ...newCard, tid: parseInt(e.target.value) })}
+          required
+        >
+          <option value="">Sélectionnez un terme</option>
+          {terms.map((term) => (
+            <option key={term.id} value={term.id}>
+              {term.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+    <button type="button" className="btn btn-primary" onClick={handleAddCard}>
+      Ajouter
+    </button>
+  </form>
+</div>
+
 
 
 

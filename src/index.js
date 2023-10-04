@@ -1,8 +1,8 @@
 import App from './components/App';
-// import Articles from './components/Articles';
+
 import 'bootstrap/dist/css/bootstrap.css';
 // import '~bootstrap/scss/bootstrap';
-// import './style/index.scss';
+
 import Authentification from './components/Authentification';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -24,7 +24,6 @@ const router = createBrowserRouter(
         <Route path="/Memo" element={<Memo />}  action={loadUser}/>
 
 
-        {/* <Route path="articles" element={<Articles />} loader={loaderArticles} /> */}
       </Route>  
      
     </>
